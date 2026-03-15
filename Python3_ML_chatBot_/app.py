@@ -5,7 +5,7 @@ from data_reader import TravelDataReader
 from engine import SimilarityEngine
 from tagger import Tagger
 
-class WhatsAppChatApp:
+class ChatApp:
     def __init__(self, root):
         self.root = root
         self.root.title("TravelBot Intelligence")
@@ -96,7 +96,6 @@ class WhatsAppChatApp:
         self.append_bubble("You", query)
         self.user_input.delete(0, tk.END)
         quest = self.tagger.process(query)
-        print("tagged -> ", quest)
 
         if self.engine:
             ans, matched_s, score = self.engine.get_best_match(quest)
@@ -106,6 +105,6 @@ class WhatsAppChatApp:
 
 if __name__ == "__main__":
     root = tk.Tk()
-    app = WhatsAppChatApp(root)
+    app = ChatApp(root)
     root.mainloop()
 
