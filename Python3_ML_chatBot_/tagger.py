@@ -19,8 +19,6 @@ class Tagger:
    def process(self,user_input):
        # 1. Extract what the user just said
         new_tags = self.splitTags(user_input)
-        print(self.previousTag)
-        print(new_tags)
 
         # 2. Context Merging Logic
         # If the user mentioned a NEW place/mode, update context.
@@ -30,8 +28,6 @@ class Tagger:
         old_mode = new_tags["mode"]
         new_tags["place"] = new_tags["place"] or self.previousTag.get("place")
         new_tags["mode"] = new_tags["mode"] or self.previousTag.get("mode")
-        print("new tag")
-        print(new_tags)
 
         self.previousTag = new_tags
         new_sentence = ""
